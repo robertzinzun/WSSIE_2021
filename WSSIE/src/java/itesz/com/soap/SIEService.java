@@ -8,6 +8,8 @@ package itesz.com.soap;
 import javax.jws.WebService;
 import javax.jws.WebMethod;
 import javax.jws.WebParam;
+import modelo.dao.AlumnoDAO;
+import modelo.dto.Alumno;
 import util.ConexionBD;
 
 /**
@@ -23,5 +25,15 @@ public class SIEService {
     @WebMethod(operationName = "hello")
     public String hello(@WebParam(name = "name") String txt) {
         return "Hello " + txt + " !";
+    }
+
+    /**
+     * Web service operation
+     */
+    @WebMethod(operationName = "consultarAlumno")
+    public Alumno consultarAlumno(@WebParam(name = "noControl") String noControl) {
+        //TODO write your implementation code here:
+        AlumnoDAO adao=new AlumnoDAO();
+        return adao.consultarAlumno(noControl);
     }
 }

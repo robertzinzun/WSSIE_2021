@@ -42,5 +42,12 @@ public class ConexionBD {
     public Connection getConnection() {
         return connection;
     }
-    
+    public void cerrar(){
+        try {
+            connection.close();
+            conexion=null;
+        } catch (SQLException ex) {
+            Logger.getLogger(ConexionBD.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
 }
